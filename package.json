@@ -19,6 +19,9 @@
     "vite-plugin-solid": "^2.3.0"
   },
   "dependencies": {
+    "flowbite": "^1.5.3",
+    "flowbite-datepicker": "^1.2.2",
+    "moment": "^2.29.4",
     "solid-js": "^1.5.1"
   }
 }
