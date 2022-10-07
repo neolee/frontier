@@ -3,6 +3,6 @@ import { render } from 'solid-js/web';
 import "tailwindcss/tailwind.css";
 
 import './common.css';
-import App from './components/App';
+import Demo from './components/Demo';
 
-render(() => <App />, document.getElementById('root') as HTMLElement);
+render(() => <Demo />, document.getElementById('root') as HTMLElement);
