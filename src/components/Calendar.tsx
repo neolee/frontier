@@ -73,7 +73,7 @@ const Calendar: Component = () => {
       };
 
       lines.push('## ' + d.format('MMMD日 dddd') + ' ' + desc);
-      if (is_off) lines.push('- [ ] TODO');
+      if (!is_off) lines.push('- [ ] TODO');
       lines.push('');
     });
 
