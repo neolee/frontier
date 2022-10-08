@@ -3,13 +3,12 @@ import { createSignal, createEffect, createResource, onMount } from 'solid-js';
 import 'flowbite';
 import { Datepicker } from 'flowbite-datepicker';
 import moment from 'moment';
+import copy from 'copy-to-clipboard';
 
 const fetchCalendar = async (query: string) =>
-//  (await fetch(`https://horizon.paradigmx.net/calendar/monthly/${query}`)).json();
-  (await fetch(`http://localhost:8000/calendar/monthly/${query}`)).json();
+  (await fetch(`https://horizon.paradigmx.net/calendar/monthly/${query}`)).json();
 
 const renderCalendar = (data: Array<Object>) => {
-  console.log(data);
   return JSON.stringify(data, null, 2);
 };
 
