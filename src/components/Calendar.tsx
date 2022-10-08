@@ -3,19 +3,22 @@ import { createSignal, createEffect, createResource, onMount } from 'solid-js';
 import 'flowbite';
 import { Datepicker } from 'flowbite-datepicker';
 import moment from 'moment';
+import 'moment/dist/locale/zh-cn';
 import copy from 'copy-to-clipboard';
+
+interface HolidayInfo {
+  date: string;
+  name: string;
+  is_off: boolean;
+};
 
 const fetchCalendar = async (query: string) =>
   (await fetch(`https://horizon.paradigmx.net/calendar/monthly/${query}`)).json();
 
-const renderCalendar = (data: Array<Object>) => {
-  return JSON.stringify(data, null, 2);
-};
-
 const Calendar: Component = () => {
   const [date, setDate] = createSignal<string>(moment().format('YYYY-MM-DD'));
   createEffect(() => {
-    console.log("date is ", date());
+    console.log('date is ', date());
   });
 
   const [query, setQuery] = createSignal<string>();
@@ -37,13 +40,46 @@ const Calendar: Component = () => {
   });
 
   const onGo: JSX.EventHandler<HTMLButtonElement, MouseEvent> = () => {
-    const query = moment(date(), 'YYYY-MM-DD').format('YYYYMMDD');
+    const query = moment(date()).format('YYYYMMDD');
     setQuery(query);
   };
 
   const onCopy: JSX.EventHandler<HTMLButtonElement, MouseEvent> = () => {
     const display = document.getElementById('display') as HTMLElement;
     copy(display.innerText);
+  };
+
+  const renderCalendar = (data: Array<HolidayInfo>) => {
+    if (!data) return '';
+
+    moment.locale('zh-cn');
+
+    var lines = Array<string>();
+
+    lines.push('# ' + moment(date()).format('YYYY年MMM'));
+    lines.push('');
+
+    data.forEach(function (info: HolidayInfo) {
+      const { date, name, is_off } = info;
+      const d = moment(date);
+
+      var desc = '';
+      if (is_off)
+        desc += '休息日（' + name + '）'
+      else {
+        desc += '工作日'
+        if (name)
+          desc += '（补' + name + '调休）';
+      };
+
+      const task = is_off ? '_休息一下吧_' : '- [ ] TODO';
+
+      lines.push('## ' + d.format('MMMD日 dddd') + ' ' + desc);
+      lines.push(task);
+      lines.push('');
+    });
+
+    return lines.join('\n');
   };
 
   return (
