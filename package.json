@@ -1,7 +1,7 @@
 {
-  "name": "vite-template-solid",
-  "version": "0.0.0",
-  "description": "",
+  "name": "frontier",
+  "version": "1.0.0",
+  "description": "Paradigm X Frontier",
   "scripts": {
     "start": "vite",
     "dev": "vite",
