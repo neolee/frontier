@@ -14,6 +14,7 @@ export default defineConfig({
         main: resolve(__dirname, 'index.html'),
         demo: resolve(__dirname, 'pages/demo.html'),
         calendar: resolve(__dirname, 'pages/calendar.html'),
+        repl: resolve(__dirname, 'pages/repl.html')
       }
     }
   }

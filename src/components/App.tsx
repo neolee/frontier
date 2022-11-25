@@ -23,6 +23,7 @@ const App: Component = () => {
         <ul>
           <Destiny href="pages/demo.html" label="Demo"/>
           <Destiny href="pages/calendar.html" label="Calendar"/>
+          <Destiny href="pages/repl.html" label="REPL" />
         </ul>
       </header>
     </div>
