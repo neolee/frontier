@@ -111,18 +111,18 @@ const REPL: Component = () => {
         <p class="py-10 font-thin text-5xl text-red-700 dark:text-red-400">
           Frontier - REPL
         </p>
-        <p class="text-3xl tracking-widest pb-10">
+        <p class="text-xl tracking-widest pb-10">
           built on <span class="text-red-500 dark:text-red-200">Monaco Editor</span> and <span class="text-red-500 dark:text-red-200">judge0</span>
         </p>
       </header>
       <div class="relative mb-4 px-2">
-        <select id="languages" onchange={onLangChange} class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-1/2 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+        <select id="languages" onchange={onLangChange} class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block min-w-max p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
           <option selected>Choose a programming language</option>
           <For each={LANGUAGES}>{(lang) =>
             <Language lang={lang} />
           }</For>
         </select>
-        <button onMouseDown={onExecute} type="button" class="absolute right-2 top-0 text-gray-900 bg-white border border-gray-300 focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-200 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-gray-800 dark:text-white dark:border-gray-600 dark:hover:bg-gray-700 dark:hover:border-gray-600 dark:focus:ring-gray-700">Execute!</button>
+        <button onMouseDown={onExecute} type="button" class="absolute right-0 top-0 text-gray-900 bg-white border border-gray-300 focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-200 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-gray-800 dark:text-white dark:border-gray-600 dark:hover:bg-gray-700 dark:hover:border-gray-600 dark:focus:ring-gray-700">Execute!</button>
       </div>
       <div class="relative w-full px-2">
       <Monaco
@@ -139,7 +139,7 @@ const REPL: Component = () => {
           }}
         />
       </div>
-      <div class="relative px-3 py-4">
+      <div class="relative px-2 py-4">
         <pre class="px-2 bg-gray-200 text-gray-800 dark:bg-gray-600 dark:text-red-100">
           <code>{output()}</code>
         </pre>
