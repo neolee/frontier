@@ -112,7 +112,7 @@ const REPL: Component = () => {
           Frontier - REPL
         </p>
         <p class="text-xl tracking-widest pb-10">
-          built on <span class="text-red-500 dark:text-red-200">Monaco Editor</span> and <span class="text-red-500 dark:text-red-200">judge0</span>
+          based on <span class="text-red-500 dark:text-red-200">Monaco Editor</span> and <span class="text-red-500 dark:text-red-200">judge0</span>
         </p>
       </header>
       <div class="relative mb-4 px-2">
