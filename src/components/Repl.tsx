@@ -129,7 +129,7 @@ const REPL: Component = () => {
           value={source()}
           valOut={setSource}
           lang={langCode()}
-          theme=""
+          theme="Nord"
           readonly={false}
           height="30rem"
           width="100%"
